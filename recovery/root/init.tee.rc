@@ -29,7 +29,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 	-r /vendor/app/mcRegistry/5020170115e016302017012521300000.drbin \
 	-r /vendor/app/mcRegistry/050d0000000000000000000000000000.drbin \
 	-r /vendor/app/mcRegistry/07210000000000000000000000000000.drbin \
-	-r /apex/com.mediatek.oemcrypto/firmware/tee/40188311faf343488db888ad39496f9a.drbin
+	-r /vendor/app/mcregistry/40188311faf343488db888ad39496f9a.drbin
     user root
     group root
     seclabel u:r:recovery:s0
