@@ -1,5 +1,5 @@
 # UI Related
-OF_SCREEN_H := 2400
+OF_SCREEN_H := 2340
 OF_STATUS_INDENT_LEFT := 48
 OF_STATUS_INDENT_RIGHT := 48
 OF_CLOCK_POS := 1
@@ -24,6 +24,6 @@ OF_USE_GREEN_LED := 0
 
 # Disable flashlight.
 # (The device uses ioctl call to /dev/flashlight instead of traditional sysfs write.)
-OF_FLASHLIGHT_ENABLE := 0
+# OF_FLASHLIGHT_ENABLE := 0
 
 OF_MAINTAINER := Andriann.

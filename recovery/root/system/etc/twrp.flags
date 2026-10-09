@@ -5,7 +5,8 @@
 # mount point		fs		device						device2			 device3			flags
 # User writeable partitions
 /boot			emmc		/dev/block/by-name/boot											flags=display=boot;slotselect;backup;flashimg
-/vendor_boot	emmc		/dev/block/by-name/vendor_boot									flags=display=vendor_boot;slotselect;backup;flashimg
+/vendor_boot	emmc		/dev/block/by-name/vendor_boot							    	flags=display=vendor_boot;slotselect;backup;flashimg
+/init_boot  	emmc		/dev/block/by-name/init_boot							    	flags=display=init_boot;slotselect;backup;flashimg
 /vbmeta			emmc		/dev/block/by-name/vbmeta										flags=display=vbmeta;slotselect;backup;flashimg
 /vbmeta_system	emmc		/dev/block/by-name/vbmeta_system								flags=display=vbmeta_system;slotselect;backup;flashimg
 /vbmeta_vendor	emmc		/dev/block/by-name/vbmeta_vendor								flags=display=vbmeta_vendor;slotselect;backup;flashimg

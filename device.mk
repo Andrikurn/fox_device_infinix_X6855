@@ -77,7 +77,7 @@ PRODUCT_PACKAGES_DEBUG += \
 # FastbootD
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
-	android.hardware.fastboot@1.0-impl-mock.recovery \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
 
 # create_pl_dev
@@ -86,11 +86,10 @@ PRODUCT_PACKAGES += \
 
 # MediaTek's AIDL boot control HAL
 PRODUCT_PACKAGES += \
-	android.hardware.boot-service.mediatek_recovery
+    android.hardware.boot-service.mediatek_recovery
 
 # Health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.example \
     android.hardware.health-service.example_recovery
 
 # Security

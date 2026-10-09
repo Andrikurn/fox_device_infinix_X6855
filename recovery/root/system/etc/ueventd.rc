@@ -1,6 +1,3 @@
-import /vendor/etc/ueventd.rc
-import /odm/etc/ueventd.rc
-
 firmware_directories /etc/firmware/ /odm/firmware/ /vendor/firmware/ /firmware/image/
 uevent_socket_rcvbuf_size 16M
 
@@ -88,7 +85,6 @@ subsystem vfio
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system
 /sys/devices/virtual/misc/uhid/*/leds/* brightness   0664  system system
 /sys/devices/virtual/misc/uhid/*/leds/* multi_intensity   0664  system system
-
-#SDD: add TESSCR-19159 by chonglin.yang 2024/09/10 for system monitor feature.start
+#SDD: add TESSCR-25361 by chonglin.yang 2025/05/12 for system monitor start
 /dev/ensignal   0666   root   root
-#SDD: add TESSCR-19159 by chonglin.yang 2024/09/10 for system monitor feature.end
+#SDD: add TESSCR-25361 by chonglin.yang 2025/05/12 for system monitor end
