@@ -34,11 +34,11 @@ export FOX_USE_DMSETUP=1
 export FOX_USE_ZSTD_BINARY=1
 
 if [[ ! -f "${health_patch_file}" ]]; then
-    echo "[X6728] Missing patch: ${health_patch_file}"
+    echo "[X6855] Missing patch: ${health_patch_file}"
 # elif [[ ! -f "${vibration_patch_file}" ]]; then
 #     echo "[X6728] Missing patch: ${vibration_patch_file}"
 elif ! command -v patch >/dev/null 2>&1; then
-    echo "[X6728] Missing required command: patch"
+    echo "[X6855] Missing required command: patch"
 elif (
     cd "${workspace_root}" &&
 # 	patch -p1 -N --dry-run --silent < "${vibration_patch_file}" >/dev/null 2>&1
@@ -49,12 +49,12 @@ elif (
 # 		patch -p1 -N --silent < "${vibration_patch_file}" >/dev/null 2>&1
         patch -p1 -N --silent < "${health_patch_file}" >/dev/null 2>&1
     ); then
-        echo "[X6728] Applied patches."
+        echo "[X6855] Applied patches."
     else
-        echo "[X6728] Failed to apply patches."
+        echo "[X6855] Failed to apply patches."
     fi
 else
-    echo "[X6728] Patches already applied or not applicable"
+    echo "[X6855] Patches already applied or not applicable"
 fi
 
 unset device_dir workspace_root health_patch_file
