@@ -228,3 +228,65 @@
 /lib/modules/cmdq-platform-mt6789.ko: /lib/modules/mtk-cmdq-drv-ext.ko /lib/modules/irq-dbg.ko /lib/modules/mmprofile.ko /lib/modules/iommu_debug.ko /lib/modules/mtk-smi-dbg.ko /lib/modules/emi.ko /lib/modules/emi-mpu.ko /lib/modules/mtk-smi.ko /lib/modules/device-apc-common.ko /lib/modules/log_store.ko /lib/modules/mrdump.ko /lib/modules/clk-common.ko /lib/modules/aee_aed.ko
 /lib/modules/mtk-mmdvfs-ftrace.ko:
 /lib/modules/tc_sgm41516d.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/bootprof.ko
+/lib/modules/tc_tc30_algo.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_pd_algo.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_perf_util.ko:
+/lib/modules/tc_tcpc.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_otg_ctrl.ko: /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/mainaf.ko:
+/lib/modules/tc_tfcp_ta.ko: /lib/modules/tc_ta_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tcpc_rt1711h.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_zram.ko:
+/lib/modules/tran_wireless_manager.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/mt6358_battery.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/focaltech_ft3683g.ko: /lib/modules/adaptive-ts.ko
+/lib/modules/tran_usb_ctrl.ko: /lib/modules/tc_ta_class.ko /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_cps4021.ko: /lib/modules/tran_wireless_manager.ko /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/hiber.ko:
+/lib/modules/tc_battery_repair_discharge.ko:
+/lib/modules/tc_lcd_notify.ko: /lib/modules/tc_common_class.ko
+/lib/modules/mtk-kpd.ko:
+/lib/modules/tc_auto_test.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tran_extcon_usb.ko: /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_pd_adapter.ko: /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/subaf.ko:
+/lib/modules/tc_water_detect.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_trancare.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_flashlight.ko: /lib/modules/flashlight.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/richtap_haptic_hv.ko:
+/lib/modules/tc_chg_type_det.ko: /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_hvdcp20_algo.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_health_sched.ko: /lib/modules/trans_sched.ko
+/lib/modules/tran_charge_transfer.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tc_pe20_algo.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/camera_eeprom.ko: /lib/modules/imgsensor_isp6s.ko
+/lib/modules/tc_pid_chg_algo.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/adaptive-ts.ko:
+/lib/modules/dw9784ois.ko:
+/lib/modules/tc_misc_intf.ko: /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tcpc_class.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/pages_prefilter.ko:
+/lib/modules/tran_mm_collect.ko: /lib/modules/tran_zram.ko
+/lib/modules/tc_temp_forecast.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/pca_tfcp_ta.ko: /lib/modules/tc_ta_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/main3af.ko:
+/lib/modules/tc_gauge.ko: /lib/modules/tc_auto_test.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/flashlight.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tran_hx3918.ko: /lib/modules/tran_hr_spo2.ko /lib/modules/hf_manager.ko
+/lib/modules/rt_pd_manager.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tc_pep50.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/main2af.ko: /lib/modules/dw9784ois.ko
+/lib/modules/tc_charger_framework.ko: /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tcpci_late_sync.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/infineon_authent.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/tc_port_burning.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/trans_sched.ko:
+/lib/modules/priority_allocate.ko:
+/lib/modules/tcpc_upm7610.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/tran_audio_typec.ko: /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/mtk_battery_manager.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko
+/lib/modules/imgsensor_isp6s.ko:
+/lib/modules/tran_hr_spo2.ko: /lib/modules/hf_manager.ko
+/lib/modules/tc_ambient_temp_det.ko: /lib/modules/tc_charger_framework.ko /lib/modules/tc_tcpc.ko /lib/modules/tcpc_class.ko /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko /lib/modules/pd_dbg_info.ko
+/lib/modules/sub2af.ko:
+/lib/modules/tc_sgm41516d.ko: /lib/modules/tc_misc_intf.ko /lib/modules/tc_adapter_class.ko /lib/modules/tc_charger_class.ko /lib/modules/tc_algorithm_class.ko /lib/modules/tc_common_class.ko

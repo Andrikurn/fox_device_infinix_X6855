@@ -2040,8 +2040,6 @@ alias of:N*T*Cmediatek,mt6359p-auxadc mt635x_auxadc
 alias of:N*T*Cmediatek,mt6359p-auxadcC* mt635x_auxadc
 alias of:N*T*Ctran_fp_legacy tran_fp
 alias of:N*T*Ctran_fp_legacyC* tran_fp
-alias of:N*T*Ctran_fp_legacy tran_fp
-alias of:N*T*Ctran_fp_legacyC* tran_fp
 alias of:N*T*Cmediatek,battery_manager mtk_battery_manager
 alias of:N*T*Cmediatek,battery_managerC* mtk_battery_manager
 alias of:N*T*Ctc,ambient_detect tc_ambient_temp_det
@@ -2052,3 +2050,18 @@ alias of:N*T*Cnt37703a,fhdp,dsi,vdo,dsc,tm,tm,120hz,cm5 nt37703a_fhdp_dsi_vdo_ds
 alias of:N*T*Cnt37703a,fhdp,dsi,vdo,dsc,tm,tm,120hz,cm5C* nt37703a_fhdp_dsi_vdo_dsc_tm_tm_120hz_cm5
 alias of:N*T*Cmediatek,mt63xx-debug mt63xx_debug
 alias of:N*T*Cmediatek,mt63xx-debugC* mt63xx_debug
+alias of:N*T*Cfocaltech,fts focaltech_ft3683g
+alias of:N*T*Cfocaltech,ftsC* focaltech_ft3683g
+alias of:N*T*Cmediatek,flashlights_tran tran_flashlight
+alias of:N*T*Cmediatek,flashlights_tranC* tran_flashlight
+alias i2c:flashlights-tran tran_flashlight
+alias i2c:haptic_hv richtap_haptic_hv
+alias of:N*T*Cmediatek,camera_eeprom camera_eeprom
+alias of:N*T*Cmediatek,camera_eepromC* camera_eeprom
+alias of:N*T*Cmediatek,dw9784_ois_i2c dw9784ois
+alias of:N*T*Cmediatek,dw9784_ois_i2cC* dw9784ois
+alias of:N*T*Cmediatek,dw9784_ois dw9784ois
+alias of:N*T*Cmediatek,dw9784_oisC* dw9784ois
+alias i2c:dw9784_ois dw9784ois
+alias of:N*T*Cmediatek,flashlight_core flashlight
+alias of:N*T*Cmediatek,flashlight_coreC* flashlight
