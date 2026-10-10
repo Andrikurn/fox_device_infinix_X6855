@@ -30,8 +30,8 @@ export FOX_BUILD_DEVICE=X6855
 export FOX_VIRTUAL_AB_DEVICE=1
 export FOX_VENDOR_BOOT_RECOVERY=1
 export FOX_INSTALLER_VENDOR_BOOT_RAMDISK_INSTALL=1
-export FOX_COMPRESS_EXECUTABLES=1
-export FOX_DRASTIC_SIZE_REDUCTION=1
+export FOX_USE_DMSETUP=1
+export FOX_USE_ZSTD_BINARY=1
 
 if [[ ! -f "${health_patch_file}" ]]; then
     echo "[X6728] Missing patch: ${health_patch_file}"
