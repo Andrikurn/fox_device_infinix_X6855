@@ -48,7 +48,7 @@ Clone the device tree:
 
 ```
 cd ~/YOUR/PATH/HERE
-git clone https://github.com/Andrikurn/fox_device_infinix_X6855.git -b fox_14.1 ./device/infinix/X6855
+git clone https://github.com/Andrikurn/fox_device_infinix_X6855.git -b fox_14.1-nodecrypt ./device/infinix/X6855
 ```
 
 Build:
