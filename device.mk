@@ -56,6 +56,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 PRODUCT_ENABLE_UFFD_GC := true
 
+# Vendor boot kernel modules (platform fragment, loaded by first-stage init)
+PRODUCT_PACKAGES += init_first_stage
+
+MTK_VENDOR_RAMDISK_MODULE_FILES := \
+    $(wildcard $(DEVICE_PATH)/prebuilt/modules/*.ko) \
+    $(wildcard $(DEVICE_PATH)/prebuilt/modules/modules.*)
+
+PRODUCT_COPY_FILES += $(foreach file,$(MTK_VENDOR_RAMDISK_MODULE_FILES), \
+    $(file):$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/$(notdir $(file)))
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
+
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

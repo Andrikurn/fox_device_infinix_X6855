@@ -1,0 +1,75 @@
+# import /init.tee.rc
+
+on init
+    restorecon /kmsg
+    restorecon_recursive /sys/devices/platform/soc/soc:mtk-leds
+    restorecon_recursive /sys/devices/platform/soc/soc:regulator-vibrator/leds/vibrator
+    restorecon /sys/devices/platform/soc/mt_usb/saving
+    symlink /tmp/fstab /etc/fstab
+
+    # Load touchscreen modules
+    insmod /lib/modules/touch/adaptive-ts.ko
+    insmod /lib/modules/touch/focaltech_ft3683g.ko
+
+    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64
+	setprop sys.usb.configfs 1
+	setprop sys.usb.controller "musb-hdrc"
+    setprop sys.usb.ffs.aio_compat 1
+	
+	# Manually set ro.board.api_level to avoid keymint crashing because of this prop being empty.
+	setprop ro.board.api_level 202504
+	
+	start vendor.boot-mediatek
+
+on boot
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor performance
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor performance
+
+on fs
+    wait /dev/block/platform/soc/11270000.ufshci
+    symlink /dev/block/platform/soc/11270000.ufshci /dev/block/bootdevice
+
+on property:persist.vendor.mtk.pl_lnk=1
+    symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
+    symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
+    symlink /dev/block/mapper/pl_a /dev/block/platform/bootdevice/by-name/preloader_raw_a
+    symlink /dev/block/mapper/pl_b /dev/block/platform/bootdevice/by-name/preloader_raw_b
+
+    symlink /dev/block/by-name/lk1 /dev/block/by-name/bootloader1
+    symlink /dev/block/by-name/lk2 /dev/block/by-name/bootloader2
+
+on property:vendor.mtk.boot0_linka=1
+    symlink /dev/block/sda /dev/block/mmcblk0boot0
+
+on property:vendor.mtk.boot0_linkb=1
+    symlink /dev/block/sdb /dev/block/mmcblk0boot0
+
+on property:vendor.mtk.boot0_linkc=1
+    symlink /dev/block/sdc /dev/block/mmcblk0boot0
+
+on property:vendor.mtk.boot1_linka=1
+    symlink /dev/block/sda /dev/block/mmcblk0boot1
+
+on property:vendor.mtk.boot1_linkb=1
+    symlink /dev/block/sdb /dev/block/mmcblk0boot1
+
+on property:vendor.mtk.boot1_linkc=1
+    symlink /dev/block/sdc /dev/block/mmcblk0boot1
+
+on fs
+	write /proc/bootprof "INIT:fs"
+	install_keyring
+    start adbd
+
+on property:servicemanager.ready=true
+    setprop sys.boot_completed 1
+
+# Override Health HAL service definition.
+service vendor.health-default /system/bin/hw/android.hardware.health-service.example_recovery
+    class hal
+    user root
+    group root
+    capabilities WAKE_ALARM BLOCK_SUSPEND
+    file /dev/kmsg w
+    seclabel u:r:recovery:s0
+    override

@@ -6,10 +6,10 @@ on:
 env:
   SYNC_URL: 'https://gitlab.com/OrangeFox/sync.git'
   MANIFEST_BRANCH: '14.1'
-  DEVICE_PATH: 'device/infinix/X6728'
+  DEVICE_PATH: 'device/infinix/X6855'
   DEVICE_BRANCH: 'fox_14.1'
-  DEVICE_NAME: 'X6728'
-  MAKEFILE_NAME: 'fox_X6728'
+  DEVICE_NAME: 'X6855'
+  MAKEFILE_NAME: 'fox_X6855'
   BUILD_TARGET: 'vendorboot'
 
 jobs:
@@ -77,6 +77,9 @@ jobs:
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}
         git clone https://github.com/${{ github.repository }} -b ${{ env.DEVICE_BRANCH }} ./${{ env.DEVICE_PATH }}
         git -C ./${{ env.DEVICE_PATH }} checkout ${{ github.sha }}
+        # Offline tooling is not part of the build tree.
+        rm -rf ./${{ env.DEVICE_PATH }}/.github ./${{ env.DEVICE_PATH }}/tools
+        test -d ./${{ env.DEVICE_PATH }}/prebuilt/modules || { echo "::error::prebuilt/modules missing"; exit 1; }
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Set Swap Space
@@ -112,6 +115,7 @@ jobs:
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}
         set +e
         source build/envsetup.sh
+        source ${{ env.DEVICE_PATH }}/vendorsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         set -eo pipefail
         lunch ${{ env.MAKEFILE_NAME }}-ap2a-eng
@@ -160,6 +164,29 @@ jobs:
         ls -al ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/
         echo
         ls -al ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/
+
+    - name: Check module layout
+      run: |
+        set -e
+        OUT=${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}
+        MODS=${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/${{ env.DEVICE_PATH }}/prebuilt/modules
+
+        src=$(ls "$MODS"/*.ko | wc -l)
+        vnd=$(find "$OUT/vendor_ramdisk/lib/modules" -maxdepth 1 -name '*.ko' | wc -l)
+        rec=$(find "$OUT/recovery/root/lib/modules" -maxdepth 1 -name '*.ko' | wc -l)
+        echo "prebuilt: $src, vendor_ramdisk: $vnd, recovery root: $rec"
+        [ "$vnd" -eq "$src" ] || { echo "::error::vendor_ramdisk has $vnd modules, expected $src"; exit 1; }
+        [ "$rec" -eq 0 ] || { echo "::error::recovery fragment has $rec top-level modules"; exit 1; }
+
+        { [ -e "$OUT/vendor_ramdisk/init" ] || [ -L "$OUT/vendor_ramdisk/init" ]; } || { echo "::error::$OUT/vendor_ramdisk/init missing (patch 03 not applied?)"; exit 1; }
+        [ -f "$OUT/vendor_ramdisk/first_stage_ramdisk/fstab.mt6789" ] || { echo "::error::first-stage fstab missing from vendor_ramdisk"; exit 1; }
+
+        cd "$MODS"
+        unlisted=$(comm -13 <(sort -u modules.load modules.load.recovery) <(ls *.ko | sort) | wc -l)
+        missing=$(comm -23 <(sort -u modules.load modules.load.recovery) <(ls *.ko | sort) | wc -l)
+        [ "$unlisted" -eq 0 ] || { echo "::error::$unlisted modules are in no load list"; exit 1; }
+        [ "$missing" -eq 0 ] || { echo "::error::$missing load-list entries have no module"; exit 1; }
+        echo "load lists cover all $src modules"
 
     - name: Stage files and generate checksums
       run: |
