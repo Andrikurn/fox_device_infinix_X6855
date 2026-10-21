@@ -22,9 +22,8 @@
 device_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 workspace_root="$(cd "${device_dir}/../../.." && pwd)"
 patch_files=(
-	"${device_dir}/patches/01-patch-vibration.patch"
-	"${device_dir}/patches/02-patch-health-hal.patch"
-	"${device_dir}/patches/03-patch-native-vendor-ramdisk.patch"
+	"${device_dir}/patches/01-patch-health-hal.patch"
+	"${device_dir}/patches/02-patch-native-vendor-ramdisk.patch"
 )
 
 export ALLOW_MISSING_DEPENDENCIES=true

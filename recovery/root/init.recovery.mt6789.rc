@@ -25,8 +25,13 @@ on init
 	start vendor.boot-mediatek
 
 on boot
+    # Set cpu governor to performance
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor performance
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor performance
+
+    # Prepare haptic
+    write /sys/class/leds/vibrator/trigger transient
+    write /sys/class/leds/vibrator/state 1
 
 on fs
     wait /dev/block/platform/soc/11270000.ufshci
