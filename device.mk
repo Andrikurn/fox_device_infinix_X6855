@@ -100,23 +100,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.example_recovery
 
-# Security
-PRODUCT_PACKAGES += \
-    android.hardware.security.rkp-V3-ndk \
-    android.hardware.security.secureclock-V1-ndk \
-    android.hardware.security.sharedsecret-V1-ndk
-
 # Keystore2
 PRODUCT_PACKAGES += \
     android.system.keystore2
-
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper-V1-ndk
-
-# Keymint
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint-V3-ndk
 
 # verbose_abort shim
 PRODUCT_PACKAGES += \

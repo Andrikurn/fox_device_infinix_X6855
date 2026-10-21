@@ -1,0 +1,19 @@
+# Workaround for Trustonic trustlets being too big
+
+on fs
+    wait /dev/block/mapper/vendor${ro.boot.slot_suffix} 10
+    wait /dev/block/by-name/persist 10
+
+    exec -- /system/bin/mkdir -p /mnt/vendor_decrypt /mnt/vendor/persist /data/vendor/mcRegistry
+    exec -- /system/bin/mount -t erofs -o ro /dev/block/mapper/vendor${ro.boot.slot_suffix} /mnt/vendor_decrypt
+
+    exec -- /system/bin/sh -c 'm=/mnt/vendor/persist; if ! grep -q " $m " /proc/mounts; then mount -t ext4 -o ro,noload /dev/block/by-name/persist "$m"; fi'
+
+    exec -- /system/bin/mkdir -p /vendor/bin /vendor/lib64 /vendor/app
+    exec -- /system/bin/mount -o bind,ro /mnt/vendor_decrypt/bin /vendor/bin
+    exec -- /system/bin/mount -o bind,ro /mnt/vendor_decrypt/lib64 /vendor/lib64
+    exec -- /system/bin/mount -o bind,ro /mnt/vendor_decrypt/app /vendor/app
+
+    exec -- /system/bin/sh -c 'f=/mnt/vendor/persist/mcRegistry/failure_records.dat; if [ -f "$f" ]; then cp -p "$f" /tmp/failure_records.dat && mount -o bind /tmp/failure_records.dat "$f"; fi'
+
+    exec -- /system/bin/sh -c 'grep -q " /mnt/vendor_decrypt " /proc/mounts && setprop custom.vendor_decrypt.ready 1'
