@@ -72,77 +72,6 @@ on fs
 on property:servicemanager.ready=true
     setprop sys.boot_completed 1
 
-service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
-    -r /vendor/app/mcRegistry/06090000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/020f0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/05120000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/05120000000000000000000000000001.drbin \
-    -r /vendor/app/mcRegistry/05160000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/020b0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/05070000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/030b0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/03100000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/030c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/031c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/032c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/033c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/034c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/035c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/036c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/037c0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/090b0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/0f5eed3c3b5a47afacca69a84bf0efad.drbin \
-    -r /vendor/app/mcRegistry/07060000000000000000000000007169.drbin \
-    -r /vendor/app/mcRegistry/4be4f7dc1f2c11e5b5f7727283247c7f.drbin \
-    -r /vendor/app/mcRegistry/08070000000000000000000000008270.drbin \
-    -r /vendor/app/mcRegistry/07070000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/07407000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin \
-    -r /vendor/app/mcRegistry/6b3f5fa0f8cf55a7be2582587d62d63a.drbin \
-    -r /vendor/app/mcRegistry/5020170115e016302017012521300000.drbin \
-    -r /vendor/app/mcRegistry/050d0000000000000000000000000000.drbin \
-    -r /vendor/app/mcRegistry/07210000000000000000000000000000.drbin
-    user root
-    group root
-    seclabel u:r:recovery:s0
-    setenv LD_LIBRARY_PATH /vendor/lib64:/system/lib64
-    disabled
-
-service tee-service /vendor/bin/hw/vendor.trustonic.tee-service
-    user root
-    group root
-    seclabel u:r:recovery:s0
-    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64
-    setenv LD_PRELOAD /system/lib64/libverbose_abort_shim.so
-    disabled
-
-service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic --rkp_version=v1
-    user root
-    group root
-    seclabel u:r:recovery:s0
-	interface android.hardware.keymaster@4.0::IKeymasterDevice default
-    interface android.hardware.keymaster@4.1::IKeymasterDevice default
-    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64
-    setenv LD_PRELOAD /system/lib64/libverbose_abort_shim.so
-    disabled
-
-service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
-    user root
-    group root
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-    seclabel u:r:recovery:s0
-    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64
-    setenv LD_PRELOAD /system/lib64/libverbose_abort_shim.so
-    disabled
-
-on property:custom.vendor_decrypt.ready=1
-    start mobicore
-    start vendor.keymint-trustonic
-
-on property:ro.vendor.trustonic.ready=true
-    start tee-service
-    start vendor.gatekeeper-default
-
 service vendor.health-default /system/bin/hw/android.hardware.health-service.example_recovery
     class hal
     user root
@@ -151,7 +80,6 @@ service vendor.health-default /system/bin/hw/android.hardware.health-service.exa
     file /dev/kmsg w
     seclabel u:r:recovery:s0
     override
-
 
 # Override keystore2 service definition.
 service keystore2 /system/bin/keystore2 /tmp/misc/keystore
