@@ -10,6 +10,9 @@ product				/product		auto		ro																	wait,slotselect,logical
 system_ext			/system_ext		auto		ro																	wait,slotselect,logical
 vendor_dlkm			/vendor_dlkm	auto		ro																	wait,slotselect,logical
 odm_dlkm			/odm_dlkm		auto		ro																	wait,slotselect,logical
+odm          /odm          auto  ro  wait,slotselect,logical,nofail
+system_dlkm  /system_dlkm  auto  ro  wait,slotselect,logical,nofail
+/dev/block/by-name/persist  /mnt/vendor/persist  ext4  noatime,nosuid,nodev  wait,check,nofail
 
 # Transsion partitions
 tr_carrier			/tr_carrier		auto		ro																	wait,slotselect,logical,nofail
